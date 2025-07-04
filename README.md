@@ -7,9 +7,12 @@ You have been engaged as a Business Intelligence Analyst to support the Abuja di
 
 ## Case Scenario I
 ### Question 1: Which product category had the highest sales?
+- SQL Query
 
-'''select 
+```
+select 
 Product_Category, SUM(Sales) as [Total Sales]
 from [dbo].[KMS Sql Case Study]
 group by Product_Category
-Order by [Total Sales] desc '''
+Order by [Total Sales] desc
+```
