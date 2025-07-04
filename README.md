@@ -283,3 +283,6 @@ Based on the analysis, it appears that **KMS** is **NOT optimally** or appropria
      loss of customer satisfaction, repeat business, or contractual penalties due to slow delivery.
    - **Optimize Delivery Truck Use:** While economical, if "Delivery Truck" has the highest total cost for urgent orders, it may indicate inefficiencies in routing, capacity 
       utilization, or a need to shift some of these urgent orders to faster, irrespective of the pricing modes.
+
+### KMS SQL File
+[🔗 Amazon Excel File]()
