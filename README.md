@@ -170,4 +170,73 @@ Order by [Total Sales by Small Business Customer] desc
 ```
 **Dennis Kane** is identified as the small business customer with the highest sales, contributing **₦75,967.59** to KMS revenue. This customer is a key asset within the small business segment. **Management** could consider reaching out to **Dennis Kane** directly to understand their needs better, offer personalized bulk discounts, or explore opportunities for upselling/cross-selling to further solidify this valuable relationship and potentially use them as a case study for attracting similar high-value small business clients.
 
+### 8. Which Corporate Customer placed the most number of orders in 2009 – 2012?
+- **SQL Query:**
+```
+Select top 1 Customer_Name,Customer_Segment, Count(Distinct[Order_ID]) as [Total Orders]
+from [dbo].[KMS Sql Case Study]
+where Customer_Segment = 'Corporate'
+and Order_Date between '2009-01-01' and '2012-12-31'
+Group By Customer_Name, Customer_Segment
+Order by [Total Orders] desc
+```
+- **Results:**
+```
+| customer_Name       | Customer_Segment    | Total Orders |
+|---------------------|---------------------|--------------|
+| Adam Hart           | Corporate           | 18           |
+```
+**Adam Hart** is identified as the **Corporate Customer** who placed the highest number of orders **(18)** between 2009 and 2012. This indicates **Adam Hart** is a highly engaged and consistent corporate client for **KMS**. **Management should** recognize this customer as a key relationship and explore opportunities for deepened engagement.
+
+### 9. Which consumer customer was the most profitable one?
+- **SQL Query:**
+```
+Select top 1 Customer_Name, Customer_Segment, Sum(Profit) as [Total Profit]
+from [dbo].[KMS Sql Case Study]
+where Customer_Segment='Consumer'
+Group by Customer_Name, Customer_Segment
+Order by [Total Profit] desc
+```
+- **Results:**
+```
+| customer_Name       | Customer_Segment    | Total Proft      |
+|---------------------|---------------------|------------------|
+| Emily Phan          | Consumer            | 34005.4392166138 |
+```
+**Emily Phan** emerges as the most profitable consumer customer for KMS, generating a total profit of **₦34,005.44.** It's noteworthy that **Emily Phan** also appeared as one of the overall most valuable customers by sales (from Question 6), reinforcing her importance to the business. This indicates a customer who not only purchases frequently but also tends to buy items with higher profit margins. **KMS** should prioritize retaining and nurturing this relationship, potentially through exclusive offers on high-margin products or personalized communication, to maximize long-term profitability.
+
+### 10. Which customer returned items, and what segment do they belong to?
+```
+Select k.[Customer_Name], k.[Customer_Segment]
+from [dbo].[KMS Sql Case Study] as k
+Join [dbo].[Order_Status] as o on k.[Order_ID] = o.[Order_ID]
+where o.Status = 'Returned'
+```
+- **Results:**
+```
+| Customer_Name      | Customer_Segment   |
+|-------------------|---------------------|
+| Aaron Bergman      | Corporate          |
+| Alejandro Grove    | Consumer           |
+| Becky Pak          | Corporate          |  
+| Barry Blumstein   | Small Business      |
+| Amy Cox            | Home Office        |
+```
+**The query** returned **419 unique customers** who have returned items. These customers belong to various segments including:
+**Home Office
+Corporate
+Small Business
+Consumer**
+
+A substantial number of customers, totaling **419 individuals/entities,** have returned items to KMS. These returns are not isolated to a single customer segment but are observed across **Home Office, Corporate, Small Business, and Consumer segments.** This indicates a widespread issue or characteristic behavior rather than a segment-specific problem.
+
+**Recommendations for Management:**
+- **Investigate Root Causes:** KMS should delve deeper into the reasons for these returns. Is it due to product quality issues, incorrect orders, late deliveries, product not meeting expectations, or complex return policies?
+- **Return Policy Review:** Evaluate the existing return policy to ensure it is clear, fair, and not inadvertently encouraging returns.
+- **Feedback Loop:** Implement a system to capture feedback from customers during the return process to continuously improve products, services, and fulfillment.
+
+### 11. If the delivery truck is the most economical but the slowest shipping method and Express Air is the fastest but the most expensive one, do you think the company appropriately spent shipping costs based on the Order Priority? Explain your answer
+
+
+
 
