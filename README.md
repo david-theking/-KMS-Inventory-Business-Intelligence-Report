@@ -285,4 +285,4 @@ Based on the analysis, it appears that **KMS** is **NOT optimally** or appropria
       utilization, or a need to shift some of these urgent orders to faster, irrespective of the pricing modes.
 
 ### KMS SQL File
-[🔗 Amazon Excel File]()
+[🔗 KMS File](https://github.com/david-theking/-KMS-Inventory-Business-Intelligence-Report/blob/main/KMS%20Case%20Study%20DSA.sql)
