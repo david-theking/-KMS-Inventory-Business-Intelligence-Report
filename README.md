@@ -274,11 +274,12 @@ Based on the analysis, it appears that **KMS** is **NOT optimally** or appropria
     - **The fastest and most expensive method, Express Air,** consistently has the **lowest total shipping cost and the lowest number of orders** across all priority levels, including "Critical" and "High". This strongly suggests it is being underutilized for urgent shipments, where its speed would be most beneficial, despite its higher individual cost.
 
 **Conclusion and Recommendations:** The current spending pattern indicates a potential disconnect between stated order priority and the chosen shipping method. KMS might be sacrificing delivery speed for urgent orders to save on per-shipment costs, which could negatively impact customer satisfaction for critical deliveries.
-Management Should:
+
+
   Management should:
-**- Review Shipping Policies:** Establish clearer guidelines for selecting shipping methods based on Order Priority, ensuring that "Critical" and "High" priority orders are      
+  - Review Shipping Policies:** Establish clearer guidelines for selecting shipping methods based on Order Priority, ensuring that "Critical" and "High" priority orders are
     consistently routed via faster (even if individually more expensive) options like "Express Air."
-    - **Cost-Benefit Analysis for Urgency:** Conduct a detailed cost-benefit analysis comparing the increased shipping cost of "Express Air" for critical orders against the potential 
-      loss of customer satisfaction, repeat business, or contractual penalties due to slow delivery.
-    - **Optimize Delivery Truck Use:** While economical, if "Delivery Truck" has the highest total cost for urgent orders, it may indicate inefficiencies in routing, capacity 
+  - Cost-Benefit Analysis for Urgency:** Conduct a detailed cost-benefit analysis comparing the increased shipping cost of "Express Air" for critical orders against the potential
+     loss of customer satisfaction, repeat business, or contractual penalties due to slow delivery.
+   - Optimize Delivery Truck Use:** While economical, if "Delivery Truck" has the highest total cost for urgent orders, it may indicate inefficiencies in routing, capacity 
       utilization, or a need to shift some of these urgent orders to faster, irrespective of the pricing modes.
