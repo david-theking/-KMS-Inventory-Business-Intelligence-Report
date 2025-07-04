@@ -73,7 +73,7 @@ Group by Region, Product_Sub_Category
 - **Result**
 ```
 | Region                   | Product_Sub_Category    | Total Sales of Appliances in Ontario |
-|--------------------------|-------------------------|----------------------|
+|--------------------------|-------------------------|---------------------------------------|
 | Ontario                  | Appliances               | 202346.839630127
 ```
 
@@ -123,7 +123,7 @@ order by [Total Shipping Cost]desc
 ```
 - **Result**
 ```
-| Hip_Mode          | Total Shipping Cost              |
+| Ship_Mode          | Total Shipping Cost              |
 |-------------------|-----------------------------------|
 | Delivery Truck    | 51971.9397373199                  |
 ```
@@ -139,4 +139,35 @@ group by Customer_Name, Product_Category
 order by [Total_Sales_to_Customers] desc
 ```
 - **Result**
+```
+| customer_name       | Product_Category    | Total_Sales_to_Customers |
+|---------------------|---------------------|--------------------------|
+| Emily Phan          | Technology          | 110481.965362549         |
+| Deborah Brumfield   | Technology          | 76795.7947387695         |
+| Dennis Kane         | Technology          | 60434.642868042          |
+| Jasper Cacioppo     | Technology          | 57739.271484375          |
+| Clytie Kelty        | Technology          | 54454.9494018555         |
+```
+The most valuable customers for **Kultra Mega Stores** are **Emily Phan**, **Deborah Brumfield**, **Dennis Kane**, **Jasper Cacioppo**, and **Clytie Kelty**, based on their significant total sales contributions.
+Their purchasing patterns shows **Technology Dominance**. All 5 customers bought from the **Technology** Product Category
+**Recommendations for Management:**
+**Tailored Offers:** For these 5 Customers KMS should continue to push new technology products, accessories, and upgrades.
+
+### 7. Which small business customer had the highest sales?
+- **SQL Query:**
+```
+Select top 1 Customer_Segment, Customer_Name, SUM(Sales) as [Total Sales by Small Business Customer]
+from [dbo].[KMS Sql Case Study]
+Where Customer_Segment = 'Small Business'
+Group by Customer_Segment, Customer_Name
+Order by [Total Sales by Small Business Customer] desc
+```
+- **Results:**
+```
+| customer_Segment    | Customer_Name       | Total Sales by Small Business Customer |
+|---------------------|---------------------|----------------------------------------|
+| Small Business      | Dennis Kane         | 75967.5932159424                       |
+```
+**Dennis Kane** is identified as the small business customer with the highest sales, contributing **₦75,967.59** to KMS revenue. This customer is a key asset within the small business segment. **Management** could consider reaching out to **Dennis Kane** directly to understand their needs better, offer personalized bulk discounts, or explore opportunities for upselling/cross-selling to further solidify this valuable relationship and potentially use them as a case study for attracting similar high-value small business clients.
+
 
