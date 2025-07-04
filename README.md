@@ -206,6 +206,7 @@ Order by [Total Profit] desc
 **Emily Phan** emerges as the most profitable consumer customer for KMS, generating a total profit of **₦34,005.44.** It's noteworthy that **Emily Phan** also appeared as one of the overall most valuable customers by sales (from Question 6), reinforcing her importance to the business. This indicates a customer who not only purchases frequently but also tends to buy items with higher profit margins. **KMS** should prioritize retaining and nurturing this relationship, potentially through exclusive offers on high-margin products or personalized communication, to maximize long-term profitability.
 
 ### 10. Which customer returned items, and what segment do they belong to?
+- **SQL Query:**
 ```
 Select k.[Customer_Name], k.[Customer_Segment]
 from [dbo].[KMS Sql Case Study] as k
@@ -237,6 +238,47 @@ A substantial number of customers, totaling **419 individuals/entities,** have r
 
 ### 11. If the delivery truck is the most economical but the slowest shipping method and Express Air is the fastest but the most expensive one, do you think the company appropriately spent shipping costs based on the Order Priority? Explain your answer
 
+- **SQL Query:**
+```
+Select [Order_Priority], [Ship_Mode],
+Count(Order_ID) as Order_Count,
+Sum(Sales-Profit) as Estimated_Shipping_Cost,
+AVG(DATEDIFF(DAY,[Order_Date], [Ship_Date])) as Avg_Ship_days
+from [dbo].[KMS Sql Case Study]
+group by [Order_Priority], [Ship_Mode]
+Order by [Order_Priority], [Ship_Mode] desc
+```
+- **Results:**
+```
+| order_priority  | ship_mode      | Order_count | Estimated_Shipping_Cost | Avg_Ship_Days |
+-----------------|----------------+----------------------------------+----------------------
+| Critical       | Regular Air    | 1180         | 1118847.32336611        | 1              |
+| Critical       | Express Air    | 200          | 197985.038040757        | 1              |
+| Critical       | Delivery Truck | 228          | 1218333.84630966        | 1              |
+| High           | Regular Air    | 1308         | 1306958.06368603        | 1              |
+| High           | Express Air    | 212          | 201587.179233134        | 1              |
+| High           | Delivery Truck | 248          | 1338507.98574829        | 1              |
+| Low            | Regular Air    | 1280         | 1360358.0190005         | 4              |
+| Low            | Express Air    | 190          | 190542.17304574         | 4              |
+| Low            | Delivery Truck | 250          | 1313686.1846962         | 3              |
+| Medium         | Regular Air    | 1225         | 1260247.41572989        | 1              |
+| Medium         | Express Air    | 201          | 244815.386566758        | 1              |
+| Medium         | Delivery Truck | 205          | 969386.532740116        | 1              |
+| Not Specified  | Regular Air    | 1277         | 1257789.80428584        | 1              |
+| Not Specified  | Express Air    | 180          | 194378.255207673        | 1              |
+| Not Specified  | Delivery Truck | 215          | 1080831.58942413        | 1              |
+```
+Based on the analysis, it appears that **KMS** is **NOT optimally** or appropriately spending **shipping costs** based on **Order Priority,** particularly for high-priority orders.
+- **Key Observations:**
+    **- Mismatch for High and Critical Priorities:**  For both "Critical" and "High" priority orders, the **Delivery Truck (described as the slowest and most economical method)** consistently **incurs the highest total shipping cost.** This is counter-intuitive for urgent orders, where **speed should theoretically outweigh cost-per-shipment considerations.**
+    - **The fastest and most expensive method, Express Air,** consistently has the **lowest total shipping cost and the lowest number of orders** across all priority levels, including "Critical" and "High". This strongly suggests it is being underutilized for urgent shipments, where its speed would be most beneficial, despite its higher individual cost.
 
-
-
+**Conclusion and Recommendations:** The current spending pattern indicates a potential disconnect between stated order priority and the chosen shipping method. KMS might be sacrificing delivery speed for urgent orders to save on per-shipment costs, which could negatively impact customer satisfaction for critical deliveries.
+Management Should:
+  Management should:
+    - **Review Shipping Policies:** Establish clearer guidelines for selecting shipping methods based on Order Priority, ensuring that "Critical" and "High" priority orders are      
+        consistently routed via faster (even if individually more expensive) options like "Express Air."
+    - **Cost-Benefit Analysis for Urgency:** Conduct a detailed cost-benefit analysis comparing the increased shipping cost of "Express Air" for critical orders against the potential 
+      loss of customer satisfaction, repeat business, or contractual penalties due to slow delivery.
+    - **Optimize Delivery Truck Use:** While economical, if "Delivery Truck" has the highest total cost for urgent orders, it may indicate inefficiencies in routing, capacity 
+      utilization, or a need to shift some of these urgent orders to faster, irrespective of the pricing modes.
